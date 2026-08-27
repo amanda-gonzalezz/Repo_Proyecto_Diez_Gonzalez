@@ -3,7 +3,6 @@
 **Curso:** Narración Gráfica de No Ficción (COM-208)
 **Facultad de Comunicaciones — Pontificia Universidad Católica de Chile**
 **Integrantes:** Fernanda Diez, Amanda González
-
 ---
 
 ## Título provisorio
