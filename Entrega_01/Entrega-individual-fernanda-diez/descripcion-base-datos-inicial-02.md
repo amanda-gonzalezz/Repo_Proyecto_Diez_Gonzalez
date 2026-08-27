@@ -12,7 +12,7 @@ Ya descargamos el archivo de SERVEL con los ingresos y gastos electorales, pero 
 
 La base final contendrá el gasto de campaña total declarado por cada uno de los candidatos a CORE incluidos en la Base de datos 1 (resultados electorales), para la elección de 2024.
 
-**Variables (columnas), versión final:**
+**Variables (columnas)**
 
 | Columna | Descripción |
 |---|---|
