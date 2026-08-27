@@ -4,7 +4,7 @@
 
 ## Autor y publicación de los datos
 
-Los datos son producidos y publicados oficialmente por el **Servicio Electoral de Chile (SERVEL)**, que recoge las declaraciones de aportes y gastos de campaña que cada candidato está obligado a presentar por la Ley N° 19.884 sobre Transparencia, Límite y Control del Gasto Electoral. Se obtienen desde la sección "Ingresos y gastos electorales de los candidatos y candidatas": http://www-doc.servel.cl/?tipo=ingresosygastos (accesible también desde https://www.servel.cl/campanas-electorales-introduccion/documentos/)
+Los datos son producidos y publicados oficialmente por el **Servicio Electoral de Chile (SERVEL)**, que recoge las declaraciones de aportes y gastos de campaña que cada candidato está obligado a presentar por la Ley N° 19.884 sobre Transparencia, Límite y Control del Gasto Electoral. Se obtienen desde la sección "Ingresos y gastos electorales de los candidatos y candidatas": http://www-doc.servel.cl/?tipo=ingresosygastos
 
 ## Contenido
 
