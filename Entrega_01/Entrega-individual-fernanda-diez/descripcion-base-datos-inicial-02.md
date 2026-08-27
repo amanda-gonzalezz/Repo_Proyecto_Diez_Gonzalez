@@ -1,43 +1,41 @@
 # Base de datos 2 — Gasto de campaña declarado, elección de Consejeros Regionales (CORE)
 
+**Responsable:** Fernanda Diez
+
 ## Autor y publicación de los datos
 
-Los datos son producidos y publicados oficialmente por el **Servicio Electoral de Chile (SERVEL)**, a través de su **Plataforma de Transparencia Electoral**, que recoge las declaraciones de aportes y gastos de campaña que cada candidato está obligado a presentar por la Ley N° 19.884 sobre Transparencia, Límite y Control del Gasto Electoral. Se obtiene desde: https://www.servel.cl
+Los datos son producidos y publicados oficialmente por el **Servicio Electoral de Chile (SERVEL)**, que recoge las declaraciones de aportes y gastos de campaña que cada candidato está obligado a presentar por la Ley N° 19.884 sobre Transparencia, Límite y Control del Gasto Electoral. Se obtienen desde la sección "Ingresos y gastos electorales de los candidatos y candidatas": http://www-doc.servel.cl/?tipo=ingresosygastos (accesible también desde https://www.servel.cl/campanas-electorales-introduccion/documentos/)
 
 ## Contenido
 
-La base contendrá el detalle del gasto de campaña declarado por cada uno de los candidatos incluidos en la Base de datos 1 (resultados electorales), para la misma elección de Consejeros Regionales.
+Ya descargamos el archivo de SERVEL con los ingresos y gastos electorales, pero viene **consolidado con todas las candidaturas de las Elecciones Municipales y Regionales 2024** (alcaldes, concejales, gobernadores regionales y consejeros regionales juntos en un mismo archivo). 
 
-**Variables (columnas):**
+La base final contendrá el gasto de campaña total declarado por cada uno de los candidatos a CORE incluidos en la Base de datos 1 (resultados electorales), para la elección de 2024.
+
+**Variables (columnas), versión final:**
 
 | Columna | Descripción |
 |---|---|
-| `id_candidato` | Identificador único (mismo formato que en la Base de datos 1, para permitir el cruce) |
-| `nombre_candidato` | Nombre completo del candidato |
+| `id_candidato` | Identificador para el cruce con la Base de datos 1. Lo construiremos "sumando" el nombre normalizado (mayúsculas, sin tildes, sin espacios extra) con la circunscripción provincial. No es un ID que entregue SERVEL, lo generamos nosotras igual en ambas bases para que el cruce no dependa de que los nombres estén escritos idéntico en las dos fuentes |
+| `nombre_candidato` | Nombre completo del candidato, tal como aparece en el archivo original |
 | `region` | Región de la candidatura |
-| `circunscripcion_provincial` | Circunscripción provincial |
+| `circunscripcion_provincial` | Circunscripción provincial (unidad territorial más chica que la región, la que realmente define la papeleta, el número de competidores y los cupos de CORE) |
 | `gasto_total_declarado` | Monto total de gasto de campaña declarado (en pesos chilenos) |
-| `aporte_propio` | Monto del gasto financiado con recursos propios del candidato |
-| `aporte_partido` | Monto del gasto financiado por su partido/lista |
-| `aporte_terceros` | Monto del gasto financiado por aportes de terceros |
-| `limite_gasto_permitido` | Límite legal de gasto para ese cargo/circunscripción, según fórmula de SERVEL |
-| `porcentaje_limite_usado` | % del límite legal que efectivamente gastó (calculada) |
-
-La columna `porcentaje_limite_usado` es calculada; no viene directamente del archivo de SERVEL.
-
-**Período:** misma elección de Consejeros Regionales que la Base de datos 1, para asegurar comparabilidad.
+| `porcentaje_limite_gasto_permitido_usado` | % del límite legal de gasto que efectivamente usó el candidato (calculada) |
 
 ## Pertinencia
 
-Esta base permite responder la segunda mitad de la pregunta de investigación: si el gasto de campaña predice el resultado electoral tanto o más que la posición en la papeleta. Al cruzarla con la Base de datos 1 mediante el identificador del candidato, se puede establecer si ambos factores actúan de forma independiente, se refuerzan mutuamente (candidatos bien posicionados que además reciben más financiamiento de su partido), o si uno compensa al otro.
+Esta base es la que nos permite controlar la hipótesis. El estudio de Morales y Becerra (2018) ya mostró que el efecto de la posición en la papeleta se mantiene incluso controlando por gasto de campaña, en el caso de concejales. Al cruzar esta base con la Base de datos 1 mediante el identificador del candidato, podemos comprobar si eso mismo ocurre en la elección CORE: si los candidatos bien posicionados igual tienen ventaja aunque comparemos a candidatos con gasto parecido, o si en realidad la posición y el gasto van tan de la mano que no se puede separar el efecto de uno del otro.
 
 ## Metodología de obtención
 
-1. Ingresar a la Plataforma de Transparencia Electoral de SERVEL y ubicar la sección de declaraciones de gasto para la elección de Consejeros Regionales seleccionada.
-2. Descargar las declaraciones disponibles por candidato o por circunscripción, según el formato en que la plataforma las entregue (individual por candidato o consolidado).
-3. Consolidar la información en una tabla maestra con una fila por candidato, usando como identificador el mismo nombre/formato que en la Base de datos 1.
-4. Verificar que cada candidato de la Base de datos 1 tenga su registro correspondiente en esta base (y documentar los casos sin declaración de gasto encontrada, si los hay, como limitación).
-5. Calcular `porcentaje_limite_usado` a partir del gasto declarado y el límite legal correspondiente.
+1. Descargar el archivo de ingresos y gastos electorales de las Elecciones Municipales y Regionales 2024 desde la sección "Ingresos y gastos electorales de los candidatos y candidatas" de servel.cl.
+2. Filtrar el archivo para quedarnos solo con las filas correspondientes a candidatos a Consejero Regional, usando la columna de tipo de cargo del archivo original.
+3. Normalizar los nombres (mayúsculas, sin tildes) y construir `id_candidato` concatenando nombre normalizado + circunscripción provincial.
+4. Verificar que cada candidato de la Base de datos 1 tenga su registro correspondiente en esta base (cruzando por `id_candidato`), revisando manualmente una muestra de cruces para confirmar que calzaron bien, y anotar los casos sin declaración de gasto.
+5. Calcular `porcentaje_limite_gasto_permitido_usado` a partir del gasto declarado y el límite legal correspondiente.
 6. Unir ambas bases (Base de datos 1 + Base de datos 2) mediante `id_candidato` para generar la tabla final de análisis.
 
-No se requiere web scraping: las declaraciones son de descarga directa desde la plataforma oficial. Como limitación metodológica, se documentará que el gasto declarado depende del reporte voluntario del candidato ante SERVEL, por lo que podría no reflejar el 100% del gasto real de campaña.
+**Sobre el gasto total por candidato:** actualmente tenemos el gasto desglosado en muchos registros pequeños por candidato (cada pago o ítem declarado por separado), no un total ya sumado. Pedimos vía Solicitud de Transparencia que SERVEL nos entregue directamente el gasto total final por candidato, para no tener que sumarlo nosotras. Si esa solicitud no llega a tiempo, la alternativa es sumar manualmente todos los montos declarados por cada candidato en los Formularios Auxiliares 107 (Detalle de Reembolso Solicitado) y 108 (Detalle de Gastos Menores) —que son los que concentran la mayoría de los ítems de gasto— para calcular nosotras el total por candidato a partir de esos registros individuales.
+
+Como limitación metodológica se documentará que el gasto declarado depende del reporte de cada candidato ante SERVEL, por lo que podría no reflejar el 100% del gasto real de campaña. El estudio de Morales y Becerra reporta que, en su base de concejales, cerca de un cuarto de los candidatos no declaró gasto; es esperable encontrar algo similar acá.
