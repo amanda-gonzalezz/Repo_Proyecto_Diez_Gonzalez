@@ -1,2 +1,1 @@
-identificador;nombre_candidato;region;circunscripcion_provincial;gasto_total_declarado;porcentaje_limite_gasto_permitido_usado
-;;;;;
+identificador,nombre_candidato,region,circunscripcion_provincial,gasto_total_declarado,porcentaje_limite_gasto_permitido_usado
