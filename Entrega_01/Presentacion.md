@@ -39,10 +39,11 @@ Ese mismo artículo menciona un trabajo anterior, de Morales y Navia (2015), que
 - Gasto de campaña declarado por cada candidato.
 
 **Qué tenemos y qué falta conseguir:**
-- **Resultados electorales:** ya los tenemos, a través del Sistema Integrado de Información Territorial de la Biblioteca del Congreso Nacional, complementado con el Boletín Final de Consejeros Regionales de SERVEL.
-- **Gasto de campaña:** ya tenemos el archivo con esta información, descargado desde SERVEL, pero viene consolidado con las cuatro elecciones municipales y regionales de 2024 juntas (alcaldes, concejales, gobernadores y CORE), así que hay que filtrarlo para quedarnos solo con los candidatos a Consejero Regional. Además, ya enviamos una Solicitud de Transparencia pidiendo un desglose más ordenado y detallado del gasto por candidato, porque el archivo actual entrega los montos de forma más agregada de lo que necesitamos (plazo de respuesta: 5 días hábiles).
-- **Posición en la papeleta:** no está disponible. SERVEL publicó este dato durante la campaña en la página de facsímiles de las cédulas electorales, pero esa página fue eliminada del sitio una vez terminado el proceso electoral. Ya enviamos una Solicitud de Transparencia pidiéndolo directamente (plazo de respuesta: 5 días hábiles).
-- **Plan B:** trabajar con los datos de la elección de Diputados 2025, que ya tenemos completos (resultados, posición en la papeleta y gasto), aplicando la misma hipótesis y el mismo método de comparación a esa elección en lugar de CORE.
+- **Resultados electorales:** disponibles a través del Sistema Integrado de Información Territorial de la Biblioteca del Congreso Nacional, complementado con el Boletín Final de Consejeros Regionales de SERVEL.
+
+- **Gasto de campaña:** disponibles en el archivo descargado desde SERVEL, pero viene consolidado con las cuatro elecciones municipales y regionales de 2024 juntas (alcaldes, concejales, gobernadores y CORE), así que hay que filtrarlo para quedarnos solo con los candidatos a Consejero Regional. Además, ya enviamos una Solicitud de Transparencia pidiendo un desglose más ordenado y detallado del gasto por candidato, porque el archivo actual entrega los montos de forma más agregada de lo que necesitamos (plazo de respuesta: 5 días hábiles).
+
+- **Posición en la papeleta:** información disponible a través del Boletín Final de Consejeros Regionales publicado por SERVEL, donde aparece el número asignado a cada candidato en la papeleta. A partir de estos datos podremos calcular la posición que ocupa cada candidato dentro de su lista.
 
 **Qué datos no existen y cómo los conseguiremos:**
 - No existe una tabla que ya cruce resultados con gasto de campaña por candidato: ese cruce lo construimos nosotras, uniendo ambas bases por el nombre de cada candidato.
@@ -98,3 +99,4 @@ Con las tres bases completas (resultados, posición y gasto) podemos mostrar si 
 - Bolognesi, Colomba, Cecilia Orueta y Trinidad Riobó. "Vigilantes de la pantalla: cómo la audiencia fiscaliza a la televisión chilena". Proyecto COM-208. https://triobo.github.io/Repo_Proyecto_CNTV/
 - Aguirre, Florencia, Erick Liu y Vicente Soza. "ANÚLEMELO: el voto que no elige presidente". Proyecto COM-208. https://liuerick.github.io/Anulemelo/
 - Muñoz, Ignacio, Martín Silva y Cristóbal Navarro. "¿Qué le pasó a la Generación Dorada?". Proyecto COM-208. https://ignaciomunozm.github.io/Grupo-Futbol/
+- Servicio Electoral de Chile (SERVEL). Boletín N°4 Final de Candidaturas a Consejeros Regionales, Elecciones Regionales y Municipales 2024. https://www.servel.cl/wp-content/uploads/2024/09/Boletin_4-Final_CORE.pdf
