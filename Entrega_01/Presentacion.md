@@ -1,26 +1,18 @@
-# Entrega 01 — Propuesta de proyecto y datos a trabajar
-
-**Curso:** Narración Gráfica de No Ficción (COM-208)
-**Facultad de Comunicaciones — Pontificia Universidad Católica de Chile**
-**Integrantes:** Fernanda Diez, Amanda González
-
----
+# Presentación Proyecto
 
 ## Título provisorio
 
 **¿Importa el orden? El efecto de la posición en la papeleta en la elección de Consejeros Regionales**
 
----
-
 ## 1. Síntesis del proyecto
 
-En las elecciones chilenas que usan listas, como concejales, diputados y consejeros regionales (CORE), cada candidato tiene un número de orden dentro de su lista, tal como aparece impreso en la papeleta. Ese número no debería cambiar el resultado, ya que en teoría, el elector vota por la persona, no por el lugar donde aparece su nombre. Pero en elecciones donde el votante no conoce a la mayoría de los candidatos, ese orden puede convertirse en un atajo al momento de marcar el voto.
+En las elecciones chilenas que usan listas, como concejales, diputados y consejeros regionales (CORE), cada candidato tiene un número de orden dentro de su lista, tal como aparece impreso en la papeleta. Ese número no debería cambiar el resultado, ya que en teoría, el elector vota por la persona, no por el lugar donde aparece su nombre. Pero en elecciones donde el votante no conoce a la mayoría de los candidatos, ese orden puede influir en la decisión de una persona al momento de votar.
 
 La elección de Consejeros Regionales es un caso propicio para este fenómeno: es un cargo poco conocido por la ciudadanía, con escasa cobertura mediática de cada candidato, y con listas que en algunas circunscripciones llegan a tener más de cien nombres. En una papeleta tan larga, es razonable pensar que el orden pesa más que en una elección donde el elector sabe bien a quién quiere votar.
 
-Al mismo tiempo, existe otro factor que se asume casi sin cuestionarlo como el gran explicador del éxito electoral: el dinero. En este proyecto el gasto de campaña no es un tema aparte, sino la manera de poner a prueba si el efecto del orden es real o no. La idea es simple: si comparamos solo a candidatos que gastaron montos parecidos, y aun así los que van primeros en la lista siguen sacando más votos, eso es una señal de que el orden importa por sí solo, más allá de cuánta plata tenía cada uno detrás.
+Al mismo tiempo, existe otro factor que se asume casi sin cuestionarlo como el gran explicador del éxito electoral: el dinero. En este proyecto, el gasto de campaña se utiliza para poner a prueba si el efecto del orden en la papeleta es real o no. Si comparamos solo a candidatos que gastaron montos parecidos, y aun así los que van primeros en la lista siguen sacando más votos, eso es una señal de que el orden importa por sí solo, más allá de cuánta plata tenía cada uno detrás.
 
-La pregunta de fondo no es solo estadística. Si el orden en la papeleta realmente cambia el resultado, eso significa que parte de quién queda electo depende de una decisión interna del partido (dónde poner a cada candidato en la lista) y no solo del mérito, del trabajo territorial o de los recursos de cada persona. Es una forma de mostrar que el diseño de una papeleta, algo que parece un detalle puramente administrativo, puede tener consecuencias políticas reales.
+La pregunta de fondo no es solo estadística. Si el orden en la papeleta realmente cambia el resultado, eso significa que parte de quién queda electo depende de una decisión interna del partido (dónde poner a cada candidato en la lista) y no solo del mérito, del trabajo territorial o de los recursos de cada persona. Es una forma de mostrar que el diseño de una papeleta, algo que parece un detalle administrativo, puede tener consecuencias políticas reales.
 
 ## 2. Pregunta de investigación (hipótesis)
 
@@ -79,9 +71,9 @@ Queremos que el reportaje se sienta como estar parado frente a una papeleta real
 
 **Elementos gráficos que nos gustaría usar**:
 
-- **Papeleta ilustrada interactiva:** una recreación visual propia de una cédula CORE. Sirve como pieza de apertura y como referencia a la que se puede volver durante todo el reportaje. 
+- **Papeleta interactiva:** una recreación visual propia de una cédula CORE. Sirve como pieza de apertura y como referencia a la que se puede volver durante todo el reportaje. 
 - **Gráfico de dispersión interactivo:** posición en la papeleta vs. porcentaje de votos, con cada punto coloreado según el grupo de gasto del candidato (bajo, medio, alto), para ver de un vistazo si el patrón se repite en los tres grupos. Nos inspiramos en el recurso que usa *"Vigilantes de la pantalla"* (Colomba Bolognesi, Cecilia Orueta y Trinidad Riobó, COM208), que cruza denuncias y sanciones del CNTV en un gráfico de dispersión donde al pasar el mouse sobre cada punto aparece el nombre del programa.
-- **Fichas de candidatos destacados:** tarjetas breves (nombre, posición, gasto, resultado) para los casos que rompen el patrón general (quienes ganaron yendo últimos y gastando poco), dándole rostro humano a los datos. Nos basamos en la sección "Casos clave" del mismo proyecto sobre el CNTV, que presenta los cinco programas más denunciados como fichas individuales con nombre, año y una breve descripción del caso.
+- **Fichas de candidatos destacados:** tarjetas breves (nombre, posición, gasto, resultado) para los casos que rompen el patrón general (quienes ganaron yendo últimos y gastando poco). Nos basamos en la sección "Casos clave" del mismo proyecto sobre el CNTV, que presenta los cinco programas más denunciados como fichas individuales con nombre, año y una breve descripción del caso.
 - **Gráfico de "fuerza del efecto" según tamaño de lista:** barras o líneas que muestren cómo cambia el efecto del orden según cuántos candidatos tenía la lista, comparando circunscripciones con listas cortas, medianas y muy largas (algunas superaron los cien candidatos). Nos inspira cómo *"¿Qué le pasó a la Generación Dorada?"* (Ignacio Muñoz, Martín Silva y Cristóbal Navarro, COM208) divide a los jugadores de la selección en tres grupos comparables (generación dorada, recambio estable y recambio fallido) y visualiza cada grupo por separado para poder compararlos.
 - **Mapa regional del efecto:** un mapa de Chile donde el color de cada región indique qué tan fuerte fue el efecto del orden ahí, con un buscador que permita filtrar por región o por macrozona (norte, centro, sur), similar al mapa de calor regional interactivo de *"Anúlemelo"* (Florencia Aguirre, Erick Liu y Vicente Soza, COM208), que usa ese mismo recurso para mostrar cómo varían los votos nulos y blancos según el territorio.
 
@@ -95,7 +87,6 @@ Con solo los resultados electorales y la posición en la papeleta podemos mostra
 **Máximo que se podría contar:**
 Con las tres bases completas (resultados, posición y gasto) podemos mostrar si la ventaja de ir primero se mantiene incluso comparando candidatos con gasto parecido, identificar en qué regiones o tipos de circunscripción el efecto es más fuerte, y cerrar con los casos que rompen el patrón. En ese escenario, el reportaje no solo responde si el orden importa, sino cuánto importa y bajo qué condiciones — dejando al lector con una cifra memorable, no solo con una conclusión abstracta.
 
----
 
 ## Fuentes citadas en esta propuesta
 
