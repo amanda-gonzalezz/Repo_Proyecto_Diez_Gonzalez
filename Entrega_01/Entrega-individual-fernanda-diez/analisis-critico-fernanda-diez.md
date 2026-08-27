@@ -16,7 +16,7 @@ Espero también que el proyecto sirva como una forma de alfabetización cívica:
 
 ## Arquetipo de historia
 
-Este proyecto se ajusta al arquetipo de **revelación**, propio del periodismo de datos que usa el cruce de información para mostrar una relación que no es evidente a simple vista. Cuando se habla de qué explica el resultado de una elección, lo primero que se menciona es el dinero; el orden en que aparece cada candidato en la papeleta es un factor mucho menos visible, casi nunca discutido, aunque está literalmente impreso en cada cédula que un elector tiene en sus manos al votar.
+Este proyecto se ajusta al arquetipo de revelación, propio del periodismo de datos que usa el cruce de información para mostrar una relación que no es evidente a simple vista. Cuando se habla de qué explica el resultado de una elección, lo primero que se menciona es el dinero; el orden en que aparece cada candidato en la papeleta es un factor mucho menos visible, casi nunca discutido, aunque está literalmente impreso en cada cédula que un elector tiene en sus manos al votar.
 
 Se relaciona con este arquetipo porque los datos nos van a permitir descubrir algo que no se puede saber solo mirando los resultados finales de una elección: hace falta cruzar la posición en la papeleta con el gasto de campaña para ver si existe un patrón, y ese patrón —de existir— es exactamente el tipo de hallazgo que el arquetipo de revelación busca mostrar. El objetivo no es simplemente describir un fenómeno conocido, sino hacer visible una regla no escrita del sistema electoral que hoy nadie ha medido con rigor.
 

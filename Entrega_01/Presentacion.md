@@ -16,7 +16,7 @@ La pregunta de fondo no es solo estadística. Si el orden en la papeleta realmen
 
 ## 2. Pregunta de investigación (hipótesis)
 
-**La posición de un candidato en la papeleta de la elección CORE predice su resultado electoral, incluso al comparar candidatos con niveles de gasto de campaña parecidos.**
+La posición de un candidato en la papeleta de la elección CORE predice su resultado electoral, incluso al comparar candidatos con niveles de gasto de campaña parecidos.
 
 ## 3. Antecedentes del tema
 

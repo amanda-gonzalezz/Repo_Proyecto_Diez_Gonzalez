@@ -8,15 +8,13 @@ Los datos son producidos y publicados oficialmente por el **Servicio Electoral d
 
 ## Contenido
 
-Ya descargamos el archivo de SERVEL con los ingresos y gastos electorales, pero viene **consolidado con todas las candidaturas de las Elecciones Municipales y Regionales 2024** (alcaldes, concejales, gobernadores regionales y consejeros regionales juntos en un mismo archivo). 
+Ya descargamos el archivo de SERVEL con los ingresos y gastos electorales, pero viene consolidado con todas las candidaturas de las Elecciones Municipales y Regionales 2024 (alcaldes, concejales, gobernadores regionales y consejeros regionales juntos en un mismo archivo). 
 
 La base final contendrá el gasto de campaña total declarado por cada uno de los candidatos a CORE incluidos en la Base de datos 1 (resultados electorales), para la elección de 2024.
 
 **Variables (columnas)**
 
-| Columna | Descripción |
-|---|---|
-| `id_candidato` | Identificador para el cruce con la Base de datos 1. Lo construiremos "sumando" el nombre normalizado (mayúsculas, sin tildes, sin espacios extra) con la circunscripción provincial. No es un ID que entregue SERVEL, lo generamos nosotras igual en ambas bases para que el cruce no dependa de que los nombres estén escritos idéntico en las dos fuentes |
+- Crearemos un identificador para el cruce con la Base de datos 1, que se construirá con el nombre + circunscripción provincial. No es un dato que entregue SERVEL, lo generamos nosotras de la misma forma en ambas bases.
 | `nombre_candidato` | Nombre completo del candidato, tal como aparece en el archivo original |
 | `region` | Región de la candidatura |
 | `circunscripcion_provincial` | Circunscripción provincial (unidad territorial más chica que la región, la que realmente define la papeleta, el número de competidores y los cupos de CORE) |
@@ -31,10 +29,10 @@ Esta base es la que nos permite controlar la hipótesis. El estudio de Morales y
 
 1. Descargar el archivo de ingresos y gastos electorales de las Elecciones Municipales y Regionales 2024 desde la sección "Ingresos y gastos electorales de los candidatos y candidatas" de servel.cl.
 2. Filtrar el archivo para quedarnos solo con las filas correspondientes a candidatos a Consejero Regional, usando la columna de tipo de cargo del archivo original.
-3. Normalizar los nombres (mayúsculas, sin tildes) y construir `id_candidato` concatenando nombre normalizado + circunscripción provincial.
-4. Verificar que cada candidato de la Base de datos 1 tenga su registro correspondiente en esta base (cruzando por `id_candidato`), revisando manualmente una muestra de cruces para confirmar que calzaron bien, y anotar los casos sin declaración de gasto.
+3. Normalizar los nombres (mayúsculas, sin tildes) y construir el identificador concatenando nombre normalizado + circunscripción provincial.
+4. Verificar que cada candidato de la Base de datos 1 tenga su registro correspondiente en esta base (cruzando por el "identificador"), revisando manualmente una muestra de cruces para confirmar que calzaron bien, y anotar los casos sin declaración de gasto.
 5. Calcular `porcentaje_limite_gasto_permitido_usado` a partir del gasto declarado y el límite legal correspondiente.
-6. Unir ambas bases (Base de datos 1 + Base de datos 2) mediante `id_candidato` para generar la tabla final de análisis.
+6. Unir ambas bases (Base de datos 1 + Base de datos 2) mediante el "identificador" para generar la tabla final de análisis.
 
 **Sobre el gasto total por candidato:** actualmente tenemos el gasto desglosado en muchos registros pequeños por candidato (cada pago o ítem declarado por separado), no un total ya sumado. Pedimos vía Solicitud de Transparencia que SERVEL nos entregue directamente el gasto total final por candidato, para no tener que sumarlo nosotras. Si esa solicitud no llega a tiempo, la alternativa es sumar manualmente todos los montos declarados por cada candidato en los Formularios Auxiliares 107 (Detalle de Reembolso Solicitado) y 108 (Detalle de Gastos Menores) para calcular nosotras el total por candidato a partir de esos registros individuales.
 
