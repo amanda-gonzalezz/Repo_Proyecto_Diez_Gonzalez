@@ -71,3 +71,4 @@ Hay que distinguir la variable "numero_papeleta" de "posicion_lista". La primera
 También hay que considerar el significado de "porcentaje_votos_lista". Esta variable representa la proporción de los votos obtenidos por su propia lista que corresponden a esa candidatura y que se calculó como se mencionó previamente.
 
 La base permite explorar si existe una relación entre la posición de una candidatura dentro de su lista y el porcentaje de votos que concentra dentro de ella. Una asociación entre ambas variables no permite establecer por sí sola que la posición sea la causa de una mayor o menor votación. Existen otros factores que podrían relacionarse con los resultados y que no están incluidos en esta base.
+
