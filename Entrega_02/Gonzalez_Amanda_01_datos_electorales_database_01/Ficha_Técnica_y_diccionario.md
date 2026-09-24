@@ -12,25 +12,17 @@ Finalmente, para identificar a las candidaturas electas se utilizó el listado p
 
 ### Metodología de construcción de la base
 
-La unidad de observación de la base corresponde a una candidatura a consejero o consejera regional. Cada fila representa, por lo tanto, a una candidatura.
+La unidad de observación corresponde a una candidatura a consejero o consejera regional en las elecciones de 2024. Cada fila de la base representa una candidatura.
 
-El proceso comenzó con la base de candidaturas de SERVEL. Se seleccionaron únicamente los registros correspondientes a la elección de Consejeros Regionales, obteniendo 2.515 candidaturas.
+La información de las candidaturas proviene de los registros publicados por el Servicio Electoral de Chile (SERVEL), que contienen las candidaturas inscritas para la elección junto con datos como su territorio electoral, lista y número de papeleta.
 
-Luego se reunieron los 16 archivos regionales de resultados descargados desde la Biblioteca del Congreso Nacional de Chile . Estos archivos tenían registros de candidatos y filas de resumen electoral. Se eliminaron las categorías “válidamente emitidos”, “votos nulos”, “votos blanco” y “total”, porque no corresponden a candidaturas y no coinciden con la unidad de observación definida para la base.
+Los resultados electorales provienen de los registros de la elección publicados por la Biblioteca del Congreso Nacional de Chile. Estos datos tienen su origen en el proceso de escrutinio de las mesas receptoras de sufragios, donde se contabilizan y registran los votos obtenidos por las candidaturas.
 
-Después se homologaron los nombres utilizados por SERVEL y los datos de la Biblioteca del Congreso Nacional para poder cruzar ambas fuentes. El proceso permitió asociar las 2.515 candidaturas registradas en SERVEL con sus respectivos resultados electorales de la Biblioteca del Congreso Nacional.
+Como la información necesaria para el proyecto se encontraba distribuida en distintas fuentes y archivos, se construyó una base propia que reúne las candidaturas registradas por SERVEL con sus respectivos resultados electorales. La base final contiene 2.515 candidaturas de las 16 regiones del país.
 
-Se mantuvieron como variables territoriales separadas "región" y "circunscripcion" (que corresponde al territorio electoral o circunscripción provincial en que compite cada candidatura)
+Además de las variables provenientes de las fuentes originales, se construyeron variables necesarias para analizar la relación entre la posición de una candidatura dentro de su lista y su resultado electoral, entre ellas la posición dentro de la lista, el tamaño de la lista, los votos totales de la lista y el porcentaje de votos obtenido por cada candidatura dentro de ella.
 
-También se construyó "id_candidato", formado a partir del nombre completo que aparecía en el documento del SERVEL junto a su circunscripción. Esta variable fue creada para facilitar la identificación de cada candidato y poder cruzarla más fácil con la otra base de nuestro proyecto.
-
-A partir de la estructura de las listas y del número de papeleta se construyeron nuevas variables. Una llamada "posicion_lista" que indica el lugar relativo de la candidatura dentro de su propia lista. Otra llamada "primero_lista" que identifica a quienes ocupan la primera posición. Otra llamada "tamaño_lista" que corresponde a la cantidad de candidatos de cada lista y por último una llamada "numero_listas_circunscripcion" que registra la cantidad de listas o candidaturas independientes que compiten en cada circunscripción.
-
-También se calculó "votos_lista" mediante la suma de los votos obtenidos por las candidaturas pertenecientes a una misma lista y circunscripción. A partir de este resultado se construyó "porcentaje_votos_lista", calculado de la siguiente manera:
-
-porcentaje_votos_lista = (votos / votos_lista) x 100
-
-Finalmente, el listado publicado por Emol fue utilizado para identificar las candidaturas electas y construir la variable "electo".
+Finalmente, se incorporó la condición de electo de cada candidatura a partir del listado de candidatos electos publicado por Emol obtenido de registros del SERVEL.
 
 ### Alcance de los datos
 
@@ -49,7 +41,6 @@ Cada fila de la base representa una candidatura individual. Las distintas variab
 La base contiene un total de 2.515 observaciones.
 
 ### Características de los datos
-
 
 La base final corresponde a un conjunto de datos estructurados en formato CSV. La información está organizada en filas y columnas, donde cada fila representa una candidatura a Consejero Regional y cada columna corresponde a una variable asociada a ella.
 
@@ -79,18 +70,18 @@ También hay que considerar que "porcentaje_votos_lista" representa la proporci�
 | id_candidato | Identificador único construido para cada candidatura a partir de su nombre completo y circunscripción. | Texto | es único por candidatura | Variable construida para facilitar la identificación y el cruce con la otra base del proyecto. |
 | nombre_candidato | Nombre completo de la candidatura. | Texto | Todos los nombres de las candidaturas | Se usaron los nombres completos registrados en SERVEL. |
 | sexo | Sexo registrado en la candidatura. | Texto | Masculino / Femenino
-| region | Región de su candidatura. | Texto | 16 regiones de Chile
-| circunscripcion | Territorio electoral o circunscripción provincial en que compite la candidatura. | Texto | 66 circunscripciones provinciales
+| región | Región de su candidatura. | Texto | 16 regiones de Chile
+| circunscripción | Territorio electoral o circunscripción provincial en que compite la candidatura. | Texto | 66 circunscripciones provinciales
 | letra_lista | Letra que de la lista electoral de la candidatura. | Texto |  B, C, F, I, L, M, N, P, Q, R, S, V, W, X, Y / vacío | Hay tres candidaturas independientes sin letra registrada |
 | pacto | Pacto electoral o candidatura independiente. | Texto | Pactos o candidaturas independientes registrados por SERVEL
 | subpacto | Subpacto electoral de la candidatura, cuando corresponde. | Texto | Subpactos registrados / vacío | Los valores vacíos se mantienen cuando la categoría no corresponde o no aparece registrada. |
 | sigla_partido | Sigla del partido político asociado a la candidatura. | Texto | Siglas de partidos registradas
 | partido | Nombre del partido político asociado a la candidatura. | Texto | Nombres de partidos registrados
-| numero_papeleta | Número electoral asignado a la candidatura en la papeleta. | Numérico (entero) | de 100 a 224| Los números pueden repetirse entre distintas circunscripciones.
-| posicion_lista | Posición relativa de la candidatura dentro de su propia lista. | Numérico (entero) | 1, 2, 3, etc. | Variable construida ordenando las candidaturas de cada lista según numero_papeleta. |
+| número_papeleta | Número electoral asignado a la candidatura en la papeleta. | Numérico (entero) | de 100 a 224| Los números pueden repetirse entre distintas circunscripciones.
+| posición_lista | Posición relativa de la candidatura dentro de su propia lista. | Numérico (entero) | 1, 2, 3, etc. | Variable construida ordenando las candidaturas de cada lista según numero_papeleta. |
 | primero_lista | Indica si la candidatura ocupa la primera posición de su lista. | Booleano (Sí/No) | Sí / No
-| tamano_lista | Cantidad de candidaturas que integran la lista dentro de la circunscripción. | Numérico (entero) | Números enteros positivos | Variable construida a partir del número de candidaturas de cada lista. |
-| numero_listas_circunscripcion | Cantidad de listas o candidaturas independientes que compiten en una circunscripción. | Numérico (entero) | Números enteros positivos | Variable construida a partir de las listas presentes en cada circunscripción. |
+| tamaño_lista | Cantidad de candidaturas que integran la lista dentro de la circunscripción. | Numérico (entero) | Números enteros positivos | Variable construida a partir del número de candidaturas de cada lista. |
+| numero_listas_circunscripción | Cantidad de listas o candidaturas independientes que compiten en una circunscripción. | Numérico (entero) | Números enteros positivos | Variable construida a partir de las listas presentes en cada circunscripción. |
 | votos | Cantidad de votos obtenidos por la candidatura. | Numérico (entero) | Números enteros iguales o mayores a 0
 | votos_lista | Suma de los votos obtenidos por las candidaturas pertenecientes a una misma lista y circunscripción. | Numérico (entero) | Números enteros iguales o mayores a 0 | Variable construida mediante la suma de votos dentro de cada lista. |
 | porcentaje_votos_lista | Porcentaje de los votos de su lista obtenido por la candidatura. | Numérico (decimal) | Valores entre 0 y 100 | Se calcula como (votos / votos_lista) x 100

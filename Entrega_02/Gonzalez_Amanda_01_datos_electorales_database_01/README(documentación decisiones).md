@@ -34,7 +34,7 @@ Al final de este proceso se incorporó a cada candidatura la cantidad de votos o
 
 #### 4.Organización territorial
 
-Se decidió mantener "region" y "circunscripcion" como dos variables diferentes. "region" identifica una de las 16 regiones del país, mientras que "circunscripcion" corresponde al territorio electoral o circunscripción provincial en que compite la candidatura (más específico). En total, la base considera 66 circunscripciones provinciales.
+Se decidió mantener "región" y "circunscripción" como dos variables diferentes. "región" identifica a cada una de las 16 regiones del país, mientras que "circunscripción" corresponde al territorio electoral o circunscripción provincial en que compite la candidatura (más específico). En total, la base considera 66 circunscripciones provinciales.
 
 La base final fue ordenada primero por región, siguiendo el orden geográfico de norte a sur y luego por circunscripción.
 
@@ -48,9 +48,11 @@ Además, este identificador permitirá posteriormente cruzar esta base con la ot
 
 #### 6.Construcción de la posición dentro de la lista
 
-Una de las principales decisiones del proceso fue diferenciar "numero_papeleta" de "posicion_lista".
+Se diferenció "numero_papeleta" de "posicion_lista".
 
-El número de papeleta corresponde al número electoral asignado a la candidatura, pero no indica directamente su posición relativa dentro de su lista. Para construir "posicion_lista", las candidaturas fueron agrupadas según región, circunscripción y letra de lista. Dentro de cada grupo se ordenaron de acuerdo con su número de papeleta.
+El número de papeleta corresponde al número electoral asignado a la candidatura, pero no indica directamente su posición relativa dentro de su lista. 
+
+Para construir "posicion_lista", las candidaturas fueron agrupadas según región, circunscripción y letra de lista. Dentro de cada grupo se ordenaron de acuerdo con su número de papeleta.
 
 La primera candidatura de cada lista recibió la posición 1, la siguiente la posición 2 y así sucesivamente. De esta forma, cuando comienza una nueva lista, la posición vuelve a comenzar desde 1 aunque el número de papeleta continúe aumentando.
 
@@ -62,13 +64,13 @@ También se creó "tamano_lista", que indica la cantidad de candidaturas que for
 
 Además, se construyó "numero_listas_circunscripcion", que indica cuántas listas o candidaturas independientes compiten en cada circunscripción.
 
-Estas variables permiten analizar posteriormente si la posible relación entre la posición y los resultados cambia según el tamaño de las listas o la cantidad de listas que compiten en un mismo territorio.
+Estas variables permitirán analizar si la posible relación entre la posición y los resultados cambia según el tamaño de las listas o la cantidad de listas que compiten en un mismo territorio.
 
 #### 8.Cálculo de los votos de la lista y porcentaje de cada candidatura
 
 A partir de la variable de votos se construyó "votos_lista". Para calcularla se sumaron los votos obtenidos por todas las candidaturas pertenecientes a una misma lista y circunscripción.
 
-Luego se calculó "porcentaje_votos_lista" mediante la siguiente fórmula: (votos / votos_lista) x 100
+Luego se calculó "porcentaje_votos_lista" con la siguiente fórmula: (votos / votos_lista) x 100
 
 Se decidió incorporar esta variable porque permite conocer qué proporción de los votos de su propia lista obtuvo cada candidatura.
 
@@ -80,7 +82,7 @@ Los nombres de esta fuente también tuvieron que ser homologados antes de compar
 
 #### 10.Casos particulares
 
-La variable "subpacto" presenta registros vacíos cuando esta categoría no corresponde o no aparece registrada en la fuente original. Estos valores fueron mantenidos vacíos y no se agregó información que no estuviera presente en la fuente.
+La variable "subpacto" tiene registros vacíos cuando esta categoría no corresponde o no aparece registrada en la fuente original. Estos valores fueron mantenidos vacíos y no se agregó información que no estuviera presente en la fuente.
 
 También se encontraron tres candidaturas independientes que no tenían una "letra_lista" registrada. Se decidió mantener estos registros sin letra y no asignarles una categoría que no apareciera en los datos originales. Para calcular las variables relacionadas con posición y tamaño de lista, estas candidaturas fueron consideradas de manera individual.
 
@@ -95,16 +97,15 @@ Para las variables construidas a partir de las listas se comprobó que cada list
 Finalmente, se comprobó que la variable "electo" identificara 302 candidaturas electas.
 
 #### Herramientas utilizadas
+Durante el proceso se trabajó principalmente con archivos CSV y Excel.
 
-Durante el proceso se trabajó con archivos CSV, Python y la biblioteca Pandas.
+Excel se utilizó para revisar y organizar los datos de las distintas fuentes. Se aplicaron filtros y ordenamientos para revisar los registros, identificar valores vacíos o duplicados y comprobar la información de las candidaturas. También se utilizaron fórmulas y funciones de Excel para realizar cálculos y organizar las variables necesarias para la base final.
 
-Python y Pandas se utilizaron durante el proceso para trabajar con los archivos CSV, filtrar y ordenar registros, revisar datos vacíos o duplicados, agrupar información y realizar los cálculos que necesitábamos para construir la base final.
+A partir de los datos se construyeron variables relacionadas con la posición de cada candidatura dentro de su lista, el tamaño de las listas, la cantidad de listas por circunscripción, los votos obtenidos por cada lista y el porcentaje de votos que cada candidatura obtuvo dentro de su propia lista.
 
-Para construir las nuevas variables se realizaron agrupaciones según región, circunscripción y lista. A partir de estas agrupaciones se determinó la posición de cada candidatura dentro de su lista, se identificó a quienes aparecían en primera posición, se calculó el tamaño de cada lista, se contó la cantidad de listas por circunscripción y se sumaron los votos obtenidos por cada lista. También se calculó el porcentaje de votos que cada candidatura obtuvo dentro de su propia lista.
+Finalmente, se revisó la base para comprobar la cantidad de registros, posibles duplicados, valores vacíos y la consistencia de las variables construidas con los datos originales.
 
-Finalmente, se revisó la consistencia de la base comprobando la cantidad de registros, posibles duplicados, valores vacíos y que las variables construidas fueran consistentes con los datos originales.
-
-## Preguntas que se pueden responder con la base limpia
+### Preguntas que se pueden responder con la base limpia
 
 A partir de las variables disponibles en la base de datos limpia, se pueden plantear distintas preguntas relacionadas con la posición de las candidaturas dentro de sus listas y sus resultados electorales:
 
