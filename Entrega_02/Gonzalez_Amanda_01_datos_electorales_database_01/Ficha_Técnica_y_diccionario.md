@@ -65,6 +65,8 @@ Los nombres completos de las candidaturas fueron conservados en la base final pa
 
 La variable "subpacto" tiene valores vacíos en los casos en que esta categoría no corresponde o no aparece registrada en la fuente original.
 
+Los nombres de las candidaturas se conservaron con la escritura utilizada en la base original de SERVEL. Por esta razón, no se agregaron manualmente tildes u otros signos ortográficos si no estaban presentes en la fuente original.
+
 También existen tres candidaturas independientes que no poseen una "letra_lista". Para calcular las variables relacionadas con posición y tamaño de lista, estos casos fueron considerados como candidaturas individuales.
 
 La variable "numero_papeleta" corresponde al número electoral de la candidatura, mientras que "posicion_lista" representa el lugar que ocupa dentro de su propia lista. Por esta razón, una candidatura con un número de papeleta mayor puede ocupar la primera posición de una lista diferente.
