@@ -48,7 +48,7 @@ Además, este identificador permitirá posteriormente cruzar esta base con la ot
 
 #### 6.Construcción de la posición dentro de la lista
 
-Se diferenció "numero_papeleta" de "posicion_lista".
+Se diferenció "número_papeleta" de "posicion_lista".
 
 El número de papeleta corresponde al número electoral asignado a la candidatura, pero no indica directamente su posición relativa dentro de su lista. 
 
@@ -60,9 +60,9 @@ A partir de esta variable se creó "primero_lista", que toma el valor "Sí" cuan
 
 #### 7.Construcción de variables relacionadas con las listas
 
-También se creó "tamano_lista", que indica la cantidad de candidaturas que forman parte de una misma lista dentro de una circunscripción.
+También se creó "tamaño_lista", que indica la cantidad de candidaturas que forman parte de una misma lista dentro de una circunscripción.
 
-Además, se construyó "numero_listas_circunscripcion", que indica cuántas listas o candidaturas independientes compiten en cada circunscripción.
+Además, se construyó "número_listas_circunscripción", que indica cuántas listas o candidaturas independientes compiten en cada circunscripción.
 
 Estas variables permitirán analizar si la posible relación entre la posición y los resultados cambia según el tamaño de las listas o la cantidad de listas que compiten en un mismo territorio.
 
@@ -82,9 +82,7 @@ Los nombres de esta fuente también tuvieron que ser homologados antes de compar
 
 #### 10.Casos particulares
 
-La variable "subpacto" tiene registros vacíos cuando esta categoría no corresponde o no aparece registrada en la fuente original. Estos valores fueron mantenidos vacíos y no se agregó información que no estuviera presente en la fuente.
-
-También se encontraron tres candidaturas independientes que no tenían una "letra_lista" registrada. Se decidió mantener estos registros sin letra y no asignarles una categoría que no apareciera en los datos originales. Para calcular las variables relacionadas con posición y tamaño de lista, estas candidaturas fueron consideradas de manera individual.
+Para evitar valores vacíos en la base final, en la variable "letra_lista" se reemplazaron los casos correspondientes a candidaturas independientes por "No aplica". En "subpacto", los registros sin subpacto fueron identificados como "No tiene".
 
 Los nombres completos también fueron conservados en la base final. Esta decisión se tomó para disminuir posibles errores de identificación y facilitar el posterior cruce con la otra base del proyecto.
 

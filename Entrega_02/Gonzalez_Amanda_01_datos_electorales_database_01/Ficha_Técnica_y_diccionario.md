@@ -69,12 +69,12 @@ También hay que considerar que "porcentaje_votos_lista" representa la proporci�
 |---|---|---|---|---|
 | id_candidato | Identificador único construido para cada candidatura a partir de su nombre completo y circunscripción. | Texto | es único por candidatura | Variable construida para facilitar la identificación y el cruce con la otra base del proyecto. |
 | nombre_candidato | Nombre completo de la candidatura. | Texto | Todos los nombres de las candidaturas | Se usaron los nombres completos registrados en SERVEL. |
-| sexo | Sexo registrado en la candidatura. | Texto | Masculino / Femenino
+| sexo | Sexo registrado en la candidatura. | Texto | H (hombre) / M (mujer)
 | región | Región de su candidatura. | Texto | 16 regiones de Chile
 | circunscripción | Territorio electoral o circunscripción provincial en que compite la candidatura. | Texto | 66 circunscripciones provinciales
-| letra_lista | Letra que de la lista electoral de la candidatura. | Texto |  B, C, F, I, L, M, N, P, Q, R, S, V, W, X, Y / vacío | Hay tres candidaturas independientes sin letra registrada |
+| letra_lista | Letra que de la lista electoral de la candidatura. | Texto |  B, C, F, I, L, M, N, P, Q, R, S, V, W, X, Y / No aplica | Hay tres candidaturas independientes sin letra registrada |
 | pacto | Pacto electoral o candidatura independiente. | Texto | Pactos o candidaturas independientes registrados por SERVEL
-| subpacto | Subpacto electoral de la candidatura, cuando corresponde. | Texto | Subpactos registrados / vacío | Los valores vacíos se mantienen cuando la categoría no corresponde o no aparece registrada. |
+| subpacto | Subpacto electoral de la candidatura, cuando corresponde. | Texto | Subpactos registrados / No tiene | Los valores vacíos se mantienen cuando la categoría no corresponde o no aparece registrada. |
 | sigla_partido | Sigla del partido político asociado a la candidatura. | Texto | Siglas de partidos registradas
 | partido | Nombre del partido político asociado a la candidatura. | Texto | Nombres de partidos registrados
 | número_papeleta | Número electoral asignado a la candidatura en la papeleta. | Numérico (entero) | de 100 a 224| Los números pueden repetirse entre distintas circunscripciones.
