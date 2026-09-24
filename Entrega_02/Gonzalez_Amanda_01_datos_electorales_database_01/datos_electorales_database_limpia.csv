@@ -1,4 +1,4 @@
-﻿id_candidato,nombre_candidato,sexo,region,circunscripcion,letra_lista,pacto,subpacto,sigla_partido,partido,numero_papeleta,posicion_lista,primero_lista,tamano_lista,numero_listas_circunscripcion,votos,votos_lista,porcentaje_votos_lista,electo
+﻿id_candidato,nombre_candidato,sexo,región,circunscripción,letra_lista,pacto,subpacto,sigla_partido,partido,número_papeleta,posición_lista,primero_lista,tamaño_lista,número_listas_circunscripción,votos,votos_lista,porcentaje_votos_lista,electo
 FERNANDO_ALEX_FERNANDEZ_BARRAZA__ARICA,FERNANDO ALEX FERNANDEZ BARRAZA,H,REGIÓN DE ARICA Y PARINACOTA,ARICA,B,IZQUIERDA ECOLOGISTA POPULAR,,POPULAR,POPULAR,100,1,Sí,11,13,450,7671,5.86625,No
 SERGIO_LEANDRO_MORALES_IMANA__ARICA,SERGIO LEANDRO MORALES IMAÑA,H,REGIÓN DE ARICA Y PARINACOTA,ARICA,B,IZQUIERDA ECOLOGISTA POPULAR,,PH,PARTIDO HUMANISTA,101,2,No,11,13,665,7671,8.669013,No
 ANTONIO_LUCIO_MAITA_FLORES__ARICA,ANTONIO LUCIO MAITA FLORES,H,REGIÓN DE ARICA Y PARINACOTA,ARICA,B,IZQUIERDA ECOLOGISTA POPULAR,,PH,PARTIDO HUMANISTA,102,3,No,11,13,281,7671,3.663147,No
