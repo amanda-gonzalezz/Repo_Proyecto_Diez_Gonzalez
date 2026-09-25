@@ -72,7 +72,7 @@ También hay que considerar que "porcentaje_votos_lista" representa la proporci�
 | sexo | Sexo registrado en la candidatura. | Texto | H (hombre) / M (mujer)
 | región | Región de su candidatura. | Texto | 16 regiones de Chile
 | circunscripción | Territorio electoral o circunscripción provincial en que compite la candidatura. | Texto | 66 circunscripciones provinciales
-| letra_lista | Letra que de la lista electoral de la candidatura. | Texto |  B, C, F, I, L, M, N, P, Q, R, S, V, W, X, Y / No aplica | Hay tres candidaturas independientes sin letra registrada |
+| letra_lista | Letra que identifica la lista electoral de la candidatura. | Texto |  B, C, F, I, L, M, N, P, Q, R, S, V, W, X, Y / No aplica | Hay tres candidaturas independientes sin letra registrada |
 | pacto | Pacto electoral o candidatura independiente. | Texto | Pactos o candidaturas independientes registrados por SERVEL
 | subpacto | Subpacto electoral de la candidatura, cuando corresponde. | Texto | Subpactos registrados / No tiene | "No tiene" corresponde a los casos en que la candidatura no registra subpacto. |
 | sigla_partido | Sigla del partido político asociado a la candidatura. | Texto | Siglas de partidos registradas
