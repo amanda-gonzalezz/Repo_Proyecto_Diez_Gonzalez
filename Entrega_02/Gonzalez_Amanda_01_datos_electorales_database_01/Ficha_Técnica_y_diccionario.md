@@ -54,11 +54,11 @@ Para facilitar el cruce entre las distintas fuentes se realizó un proceso de ho
 
 Los nombres completos de las candidaturas fueron conservados en la base final para disminuir posibles errores de identificación y facilitar el cruce con la otra base de datos del proyecto.
 
-La variable "subpacto" tiene valores vacíos en los casos en que esta categoría no corresponde o no aparece registrada en la fuente original.
-
 Los nombres de las candidaturas se conservaron con la escritura utilizada en la base original de SERVEL. Por esta razón, no se agregaron manualmente tildes u otros signos ortográficos si no estaban presentes en la fuente original.
 
-También existen tres candidaturas independientes que no poseen una "letra_lista". Para calcular las variables relacionadas con posición y tamaño de lista, estos casos fueron considerados como candidaturas individuales.
+En la variable "subpacto", los casos en que no aparece registrada fueron identificados como "No tiene".
+
+Existen tres candidaturas independientes que no poseen una letra de lista. Estos casos fueron identificados como "No aplica" y, para calcular las variables relacionadas con posición y tamaño de lista, fueron considerados como candidaturas individuales.
 
 La variable "numero_papeleta" corresponde al número electoral de la candidatura, mientras que "posicion_lista" representa el lugar que ocupa dentro de su propia lista. Por esta razón, una candidatura con un número de papeleta mayor puede ocupar la primera posición de una lista diferente.
 
@@ -74,7 +74,7 @@ También hay que considerar que "porcentaje_votos_lista" representa la proporci�
 | circunscripción | Territorio electoral o circunscripción provincial en que compite la candidatura. | Texto | 66 circunscripciones provinciales
 | letra_lista | Letra que de la lista electoral de la candidatura. | Texto |  B, C, F, I, L, M, N, P, Q, R, S, V, W, X, Y / No aplica | Hay tres candidaturas independientes sin letra registrada |
 | pacto | Pacto electoral o candidatura independiente. | Texto | Pactos o candidaturas independientes registrados por SERVEL
-| subpacto | Subpacto electoral de la candidatura, cuando corresponde. | Texto | Subpactos registrados / No tiene | Los valores vacíos se mantienen cuando la categoría no corresponde o no aparece registrada. |
+| subpacto | Subpacto electoral de la candidatura, cuando corresponde. | Texto | Subpactos registrados / No tiene | "No tiene" corresponde a los casos en que la candidatura no registra subpacto. |
 | sigla_partido | Sigla del partido político asociado a la candidatura. | Texto | Siglas de partidos registradas
 | partido | Nombre del partido político asociado a la candidatura. | Texto | Nombres de partidos registrados
 | número_papeleta | Número electoral asignado a la candidatura en la papeleta. | Numérico (entero) | de 100 a 224| Los números pueden repetirse entre distintas circunscripciones.
