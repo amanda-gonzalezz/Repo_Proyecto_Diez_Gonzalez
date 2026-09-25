@@ -1,4 +1,4 @@
-# Documentación del proceso — Base de datos de gasto de campaña (CORE 2024)
+ # Documentación del proceso — Base de datos de gasto de campaña (CORE 2024)
 
 **Responsable:** Fernanda Diez
 
@@ -10,11 +10,11 @@
 
 **Paso 2 — Filtrado.** De las 352.687 filas totales, filtramos solo las que cumplían tres condiciones a la vez: `ELECCIÓN = "CONSEJERO REGIONAL"` (para descartar las otras tres elecciones), `TIPO = "GASTO"` (para descartar los ingresos, que no nos interesan para esta base) y `TIPO CUENTA = "Candidato"` (para descartar el gasto declarado a nombre de un partido político en general, que no se puede atribuir a un candidato específico). Esto dejó 38.618 transacciones de gasto individuales.
 
-**Paso 3 — Agregación.** Cada candidato aparece en el archivo original con tantas filas como transacciones de gasto haya hecho (compra de material, arriendo de un local, etc.). Agrupamos esas filas por candidato y sumamos el monto de todas sus transacciones, generando una sola fila por candidato con su `gasto_total_declarado`. También contamos cuántas transacciones tuvo cada uno, por si en el análisis futuro interesa distinguir entre un candidato con un solo gasto grande y otro con muchos gastos chicos.
+**Paso 3 — Agregación.** Cada candidato aparece en el archivo original con tantas filas como transacciones de gasto haya hecho. Agrupamos esas filas por candidato y sumamos el monto de todas sus transacciones, generando una sola fila por candidato con su `gasto_total_declarado`. También contamos cuántas transacciones tuvo cada uno, por si en el análisis futuro interesa distinguir entre un candidato con un solo gasto grande y otro con muchos gastos chicos.
 
-**Paso 4 — Construcción del identificador de cruce.** Como el equipo necesita cruzar esta base con la Base de datos 1 (resultados electorales), construimos `id_candidato` normalizando el nombre del candidato (mayúsculas, sin tildes, espacios reemplazados por guión bajo) y concatenándolo con la circunscripción, también normalizada.
+**Paso 4 — Construcción del identificador de cruce.** Como el equipo necesita cruzar esta base con la Base de datos 1 (resultados electorales), construimos `id_candidato` normalizando el nombre del candidato (mayúsculas, sin tildes, espacios reemplazados por guión bajo) y concatenándolo con la circunscripción, también normalizada. 
 
-**Paso 5 — Verificación del cruce.** Al aplicar el `id_candidato` al archivo de gasto, 2.323 de 2.333 candidatos con gasto (99,6%) cruzaron de inmediato contra el universo completo de 2.515 candidatos de la Base de datos 1. Revisamos manualmente los 10 casos que no cruzaron, y encontramos que en todos los casos el archivo de SERVEL tenía un apellido compuesto escrito sin espacio (por ejemplo, "RODRIGUEZPENA" en vez de "RODRIGUEZ PEÑA"). Corregimos esos 10 casos a mano hasta llegar a un cruce del 100%.
+**Paso 5 — Verificación del cruce.** Al aplicar el `id_candidato` al archivo de gasto, 2.323 de 2.333 candidatos con gasto (99,6%) cruzaron de inmediato contra el universo completo de 2.515 candidatos de la Base de datos 1. Revisamos manualmente los 10 casos que no cruzaron, y encontramos que en todos los casos el archivo de SERVEL tenía un apellido compuesto escrito sin espacio (por ejemplo, "RODRIGUEZPENA" en vez de "RODRIGUEZ PEÑA"). Corregimos esos 10 casos a mano, comparando el nombre sin ningún espacio contra el universo completo, hasta llegar a un cruce del 100%.
 
 **Paso 6 — Unión con el universo completo.** Unimos la tabla de gasto agregado contra el universo completo de 2.515 candidatos usando un *left join* (no un *inner join*), para que ningún candidato quedara fuera de la base aunque no hubiera declarado gasto. A los 185 candidatos sin ningún registro de gasto les asignamos `gasto_total_declarado = 0` y `declara_gasto = "No"`, en vez de dejarlos fuera de la tabla o con un valor vacío. Dejar esos casos fuera habría sesgado cualquier análisis posterior hacia los candidatos que sí gastan.
 
@@ -31,11 +31,11 @@
 
 ## Preguntas que se pueden responder con esta base limpia
 
-**Aclaración importante:** esta base, por sí sola, **no permite responder una de las preguntas centrales del proyecto** (¿gastar más significa sacar más votos?), porque no incluye los votos de cada candidato — esa información está en la Base de datos 1 (resultados electorales, a cargo de Amanda). Lo que sí permite esta base, cruzándola después con esa otra, es justamente construir esa comparación: una vez unidas ambas por `id_candidato`, se podrá calcular la relación entre `gasto_total_declarado` y los votos obtenidos.
+**Aclaración importante:** esta base, por sí sola, **no permite responder una de las preguntas centrales del proyecto** (¿gastar más significa sacar más votos?), porque no incluye los votos de cada candidato. Esa información está en la Base de datos 1 (resultados electorales, a cargo de Amanda). Lo que sí permite esta base, cruzándola después con esa otra, es justamente construir esa comparación: una vez unidas ambas por `id_candidato`, se podrá calcular la relación entre `gasto_total_declarado` y los votos obtenidos.
 
-Mientras tanto, se construyó una tabla dinámica (pivot table) sobre esta base para ver qué preguntas más simples ya se pueden responder solo con el gasto. **Estos son resultados preliminares y exploratorios**: 
+Mientras tanto, se construyó una tabla dinámica (pivot table) sobre esta base para ver qué preguntas más simples ya se pueden responder solo con el gasto. **Estos son resultados preliminares y exploratorios**:
 
 1. **¿Cuánto gasta en promedio un candidato, y cambia según el pacto al que pertenece?** Los independientes puros son los que más gastan en promedio (aprox. $9,87 millones), seguidos por Chile Vamos RN (aprox. $7,42 millones) y Chile Vamos UDI (aprox. $6,58 millones).
 2. **¿Cuántos candidatos no declararon ningún gasto?** 185 candidatos (7,4% del total) aparecen con $0 de gasto declarado.
-3. **¿El gasto tiene relación con si la cuenta fue aprobada o rechazada por SERVEL?** Sí: entre los candidatos con cuenta rechazada, un 30% no declaró gasto, mientras que entre los aprobados esa cifra baja a un 5,3% (sugiriendo que ambas cosas están conectadas).
+3. **¿El gasto tiene relación con si la cuenta fue aprobada o rechazada por SERVEL?** Sí, ya que entre los candidatos con cuenta rechazada, un 30% no declaró gasto, mientras que entre los aprobados esa cifra baja a un 5,3%, sugiriendo que ambas cosas están conectadas.
 4. **¿En qué circunscripción se gasta más en promedio?** Santiago IV es la más alta, con aprox. $17,5 millones promedio por candidato, muy por sobre el resto del país.

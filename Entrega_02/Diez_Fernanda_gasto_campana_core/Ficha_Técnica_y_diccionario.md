@@ -9,14 +9,7 @@
 
 ## Metodología de la construcción de la base
 
-Esta base es el resultado de **fusionar y agregar** dos fuentes:
-
-1. De la hoja "INGRESOS Y GASTOS" del archivo de SERVEL se filtraron únicamente las filas donde `ELECCIÓN = "CONSEJERO REGIONAL"`, `TIPO = "GASTO"` y `TIPO CUENTA = "Candidato"` (se excluyó el gasto declarado a nivel de partido político, que no es atribuible a un candidato individual). Esto dejó 38.618 transacciones de gasto.
-2. Esas transacciones se agruparon por candidato, sumando el monto de todas sus transacciones para obtener `gasto_total_declarado`, y contando cuántas transacciones tuvo cada uno (`num_transacciones_gasto`).
-3. De la hoja "Resultado Auditoria Cuentas" del mismo archivo se extrajo el estado de aprobación de la cuenta de cada candidato (Aprueba / Aprueba con Observaciones / Rechaza), filtrando también por `CONSEJERO REGIONAL`.
-4. Ambas piezas se unieron (LEFT JOIN) contra el universo completo de 2.515 candidatos, para que ningún candidato quedara fuera aunque no haya declarado gasto. Los candidatos sin registro de gasto quedaron con `gasto_total_declarado = 0` y `declara_gasto = "No"`.
-
-**Sobre el cruce entre bases (`id_candidato`):** este identificador no lo entrega SERVEL; lo construimos nosotras concatenando el nombre del candidato normalizado (mayúsculas, sin tildes, espacios reemplazados por guión bajo) con la circunscripción, también normalizada. Al aplicar este método al archivo de gasto, 2.323 de 2.333 candidatos con gasto (99,6%) cruzaron de inmediato contra el universo de 2.515. Los 10 casos restantes no cruzaron porque el archivo de gasto de SERVEL tenía apellidos compuestos escritos sin espacio (por ejemplo, "RODRIGUEZPENA" en vez de "RODRIGUEZ PEÑA"). Se revisaron uno por uno comparando el nombre sin espacios contra el universo, y los 10 se corrigieron manualmente, llegando a un cruce del 100%.
+La base se construyó fusionando dos fuentes: el archivo de gasto electoral de SERVEL y el universo de candidatos ya validado por el equipo (Base de datos 1). Del archivo de SERVEL (352.687 filas en total, mezclando cuatro elecciones) se filtraron únicamente las 38.618 transacciones de gasto correspondientes a candidatos individuales de Consejero Regional, y se agregaron por candidato para obtener un monto total por persona. Ese resultado se unió contra los 2.515 candidatos del universo del equipo mediante un identificador construido a partir del nombre normalizado y la circunscripción (`id_candidato`), logrando un cruce exitoso en el 99,6% de los casos de forma automática y el 100% tras corregir manualmente 10 nombres con apellidos compuestos mal escritos en el archivo original. Se agregó además el estado de auditoría de cada cuenta (Aprueba / Rechaza / Con observaciones), y los candidatos sin ningún registro de gasto quedaron explícitamente con monto $0, no fuera de la base. El detalle completo de cada paso y decisión está en el archivo `README.md` (Documentación) de esta misma carpeta.
 
 ## Alcance de los datos
 
@@ -32,10 +25,9 @@ Esta base es el resultado de **fusionar y agregar** dos fuentes:
 
 ## Otras observaciones
 
-- **185 candidatos (7,4% del total) no declararon ningún gasto** (`declara_gasto = "No"`). Esto es consistente con lo que reportan Morales y Becerra (2018) para concejales, aunque en su caso la proporción sin declarar fue mayor (~25%).
-- **163 candidatos (6,5%) tienen un gasto que califica como valor atípico (outlier)** según el método del rango intercuartílico (Q3 + 1,5×IQR = $14.734.090). Se evaluó eliminarlos siguiendo la técnica estándar de limpieza de datos, pero se decidió **no hacerlo**: a diferencia de un error de digitación, estos son candidatos reales que efectivamente gastaron montos altos —varios de ellos en circunscripciones de Santiago—, y "quién gastó más" es precisamente una de las preguntas de investigación del proyecto. Eliminarlos habría sesgado el análisis descartando la información más relevante. Se dejan marcados en la columna `outlier_gasto_iqr` para que la decisión de incluirlos o excluirlos en cada visualización específica se tome en la etapa de análisis, no en la limpieza.
-- **370 candidatos (14,7%) tienen su cuenta rechazada** por SERVEL en la auditoría, y 1.122 (44,6%) fueron aprobadas "con observaciones". Esto es una limitación real de los datos: el monto declarado por un candidato con cuenta rechazada podría no ser el gasto final válido. Se deja la columna `estado_cuenta_auditoria` visible para que cualquier análisis pueda decidir si excluir o marcar estos casos.
-- No se pudo obtener el límite legal de gasto permitido por candidato (no está en el archivo de SERVEL descargado), por lo que no se incluye ningún porcentaje de uso de ese límite en esta versión de la base.
+- **185 candidatos (7,4% del total) no declararon ningún gasto.** Es consistente con Morales y Becerra (2018), quienes reportan una proporción sin declarar bastante mayor (~25%) para concejales.
+- **163 candidatos (6,5%) tienen un gasto que califica como valor atípico (outlier)** según el método IQR (umbral: $14.734.090). No se eliminaron de la base porque son candidatos reales con gasto alto, no errores de datos, y son justamente relevantes para la pregunta de investigación sobre quién gastó más (detalle completo de la decisión en la Documentación).
+- **370 candidatos (14,7%) tienen su cuenta rechazada** por SERVEL, y 1.122 (44,6%) fueron aprobadas "con observaciones".
 
 ## Diccionario de datos
 
