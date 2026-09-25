@@ -31,8 +31,11 @@
 
 ## Preguntas que se pueden responder con esta base limpia
 
-Se construyó una tabla dinámica (pivot table) sobre la base limpia para explorar qué preguntas admite responder:
-1. **¿Qué pacto electoral tuvo, en promedio, el mayor gasto de campaña por candidato?** La tabla dinámica de gasto promedio por `pacto` muestra que las candidaturas independientes puras encabezan la lista (~$9,87 millones promedio), seguidas de Chile Vamos Renovación Nacional (~$7,42 millones) y Chile Vamos UDI (~$6,58 millones). 
-2. **¿Existe diferencia en el gasto promedio entre candidatos hombres y mujeres?** Agrupando por `sexo`, el gasto promedio de las candidatas mujeres ($5.102.142) es levemente superior al de los candidatos hombres ($4.793.390) — una diferencia menor, pero que vale la pena explorar más a fondo cruzándola con la posición en la papeleta.
-3. **¿Los candidatos con cuenta rechazada declaran menos gasto (o directamente no declaran)?** Cruzando `estado_cuenta_auditoria` con `declara_gasto`, el 30% de los candidatos con cuenta rechazada (110 de 367) no declaró ningún gasto, una proporción bastante más alta que entre quienes tienen su cuenta aprobada (5,3%) o aprobada con observaciones (1,8%) — sugiriendo que el rechazo de la cuenta y la falta de declaración de gasto están relacionados.
-4. **¿Qué circunscripción tiene el mayor gasto de campaña promedio por candidato?** Las circunscripciones de Santiago (particularmente Santiago IV, con ~$17,5 millones promedio) concentran los montos más altos, muy por encima del resto del país — consistente con ser las zonas de mayor población y competencia electoral.
+**Aclaración importante:** esta base, por sí sola, **no permite responder una de las preguntas centrales del proyecto** (¿gastar más significa sacar más votos?), porque no incluye los votos de cada candidato — esa información está en la Base de datos 1 (resultados electorales, a cargo de Amanda). Lo que sí permite esta base, cruzándola después con esa otra, es justamente construir esa comparación: una vez unidas ambas por `id_candidato`, se podrá calcular la relación entre `gasto_total_declarado` y los votos obtenidos.
+
+Mientras tanto, se construyó una tabla dinámica (pivot table) sobre esta base para ver qué preguntas más simples ya se pueden responder solo con el gasto. **Estos son resultados preliminares y exploratorios**: 
+
+1. **¿Cuánto gasta en promedio un candidato, y cambia según el pacto al que pertenece?** Los independientes puros son los que más gastan en promedio (aprox. $9,87 millones), seguidos por Chile Vamos RN (aprox. $7,42 millones) y Chile Vamos UDI (aprox. $6,58 millones).
+2. **¿Cuántos candidatos no declararon ningún gasto?** 185 candidatos (7,4% del total) aparecen con $0 de gasto declarado.
+3. **¿El gasto tiene relación con si la cuenta fue aprobada o rechazada por SERVEL?** Sí: entre los candidatos con cuenta rechazada, un 30% no declaró gasto, mientras que entre los aprobados esa cifra baja a un 5,3% (sugiriendo que ambas cosas están conectadas).
+4. **¿En qué circunscripción se gasta más en promedio?** Santiago IV es la más alta, con aprox. $17,5 millones promedio por candidato, muy por sobre el resto del país.
