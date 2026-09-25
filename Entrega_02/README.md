@@ -1,33 +1,31 @@
-## Entrega 02
+# Entrega 02 — Preparar y limpiar los datos
 
-### Hipótesis actual
+**Curso:** Narración Gráfica de No Ficción (COM-208)
+**Integrantes:** Fernanda Diez, Amanda González
 
-Existe una relación entre la posición de una candidatura dentro de su lista de la elección CORE y su resultado electoral, considerando también los niveles de gasto de campaña.
+---
 
-### Preguntas de investigación
+## Hipótesis actual
 
-- ¿Existe una relación entre la posición que ocupa una candidatura dentro de su lista y el porcentaje de votos que obtiene dentro de esa lista?
+Existe una correlación entre la posición de una candidatura dentro de su lista en la elección de Consejeros Regionales (CORE) y su resultado electoral, incluso al comparar candidaturas con niveles de gasto de campaña similares.
 
-- ¿La relación entre la posición dentro de la lista y los resultados electorales se mantiene al comparar candidaturas con niveles de gasto de campaña similares?
+## Preguntas de investigación actuales
 
-- ¿La relación entre la posición dentro de la lista y el porcentaje de votos cambia según el tamaño de la lista?
+- ¿Existe una correlación entre la posición de una candidatura dentro de su lista y el porcentaje de votos que obtiene dentro de ella?
+- ¿Existe una correlación entre el gasto de campaña declarado y el porcentaje de votos obtenido?
+- ¿Existe una correlación entre el gasto de campaña y la posición en la lista (¿gastar más implica quedar mejor ubicado)?
+- ¿La correlación entre posición y resultado se mantiene al comparar candidaturas con niveles de gasto similares?
+- ¿La correlación entre posición y resultado cambia según el tamaño de la lista?
+- ¿Qué características comparten las candidaturas electas que no ocupaban la primera posición ni estuvieron entre las de mayor gasto?
 
-- ¿Qué relación existe entre el gasto electoral de una candidatura, su posición dentro de la lista y sus resultados electorales?
+## Avance del proyecto en relación con la hipótesis
 
-- ¿Qué características comparten las candidaturas electas que no ocupaban la primera posición de su lista y que tampoco estuvieron entre las que realizaron un mayor gasto electoral?
+Se construyó la base nacional de las 2.515 candidaturas a CORE 2024, con posición en la lista, votos, porcentaje de votos en la lista y tamaño de esta. También se construyó la base de gasto declarado ante SERVEL para ese mismo universo, cruzable con la anterior mediante `id_candidato`.
 
-### Avance del proyecto en relación con la hipótesis y preguntas de investigación
+Un hallazgo nuevo al limpiar el gasto: **185 candidaturas (7,4%) no declararon gasto**, y **370 (14,7%) tienen cuenta rechazada** por SERVEL. Quienes tienen cuenta rechazada tienen más probabilidad de no haber declarado gasto (30%, contra 5,3% entre los aprobados). Esto no estaba contemplado en el diseño original y se incorpora como variable de calidad (`estado_cuenta_auditoria`).
 
-La construcción de las bases de datos permitió precisar la forma en que se analizará la hipótesis planteada en la primera entrega. Inicialmente, una de las preguntas buscaba comparar si las candidaturas que aparecían primero en sus listas obtenían más votos que el resto. El análisis se orientó a estudiar la correlación entre la posición de las candidaturas y sus resultados electorales, incorporando porcentajes de votación para realizar las comparaciones.
+Por la corrección de la Entrega 01, las preguntas se reformularon como correlaciones estadísticas explícitas (posición-resultado, gasto-resultado, gasto-posición). De forma preliminar, los gráficos principales serán de dispersión con línea de tendencia, no solo comparaciones de promedios.
 
-Se construyó una base nacional con las 2.515 candidaturas a CORE de 2024, incorporando su posición dentro de la lista y sus resultados electorales.También se construyeron variables como el porcentaje de votos obtenido dentro de la lista y el tamaño de esta.
+## Síntesis de la historia
 
-El gasto de campaña se mantiene como la otra variable del proyecto. Al cruzar ambas bases se podrá analizar la relación entre gasto y resultados electorales, además de comparar candidaturas con niveles de gasto similares para observar si la relación entre posición y resultados se mantiene.
-
-### Síntesis de la historia
-
-El proyecto investiga la relación entre la posición que ocupa una candidatura dentro de su lista y sus resultados en la elección de Consejeros Regionales de 2024, considerando también el gasto realizado durante la campaña.
-
-La historia se centra en una característica de la papeleta que puede pasar inadvertida para los electores, el orden en que aparecen las candidaturas. A partir de los datos se analizará si existe una relación entre esa posición y los resultados electorales, considerando también el tamaño de las listas y el gasto de campaña.
-
-Se busca mostrar qué patrones aparecen al relacionar posición, gasto y resultados electorales.
+Cada candidatura a Consejero Regional aparece en la papeleta con un número que su propio partido le asignó, antes de contarse un solo voto. La creencia instalada es que se gana por mérito o por plata. Este proyecto pone a prueba, con datos reales de CORE 2024, una tercera explicación que casi nadie mira: el lugar donde la candidatura queda impresa en la cédula, y cómo esa posición interactúa con el gasto y el tamaño de la lista.
