@@ -25,9 +25,9 @@ La base se construyó fusionando dos fuentes: el archivo de gasto electoral de S
 
 ## Otras observaciones
 
-- **185 candidatos (7,4% del total) no declararon ningún gasto.** Es consistente con Morales y Becerra (2018), quienes reportan una proporción sin declarar bastante mayor (~25%) para concejales.
-- **163 candidatos (6,5%) tienen un gasto que califica como valor atípico (outlier)** según el método IQR (umbral: $14.734.090). No se eliminaron de la base porque son candidatos reales con gasto alto, no errores de datos, y son justamente relevantes para la pregunta de investigación sobre quién gastó más (detalle completo de la decisión en la Documentación).
-- **370 candidatos (14,7%) tienen su cuenta rechazada** por SERVEL, y 1.122 (44,6%) fueron aprobadas "con observaciones".
+- **185 candidatos (7,4% del total) no declararon ningún gasto** (`declara_gasto = "No"`). Es consistente con lo que reportan Morales y Becerra (2018) para concejales, aunque en su caso la proporción sin declarar fue mayor (~25%).
+- **163 candidatos (6,5%) tienen un gasto que califica como valor atípico (outlier)** según el método del rango intercuartílico (Q3 + 1,5×IQR = $14.734.090). Se evaluó eliminarlos siguiendo la técnica estándar de limpieza de datos, pero se decidió **no hacerlo**: a diferencia de un error de digitación, estos son candidatos reales que efectivamente gastaron montos altos —varios de ellos en circunscripciones de Santiago—, y "quién gastó más" es precisamente una de las preguntas de investigación del proyecto. Eliminarlos habría sesgado el análisis descartando la información más relevante. Se dejan marcados en la columna `outlier_gasto_iqr` para que la decisión de incluirlos o excluirlos en cada visualización específica se tome en la etapa de análisis, no en la limpieza.
+- **370 candidatos (14,7%) tienen su cuenta rechazada** por SERVEL en la auditoría, y 1.122 (44,6%) fueron aprobadas "con observaciones". Esto es una limitación real de los datos: el monto declarado por un candidato con cuenta rechazada podría no ser el gasto final válido. Se deja la columna `estado_cuenta_auditoria` visible para que cualquier análisis pueda decidir si excluir o marcar estos casos.
 
 ## Diccionario de datos
 
