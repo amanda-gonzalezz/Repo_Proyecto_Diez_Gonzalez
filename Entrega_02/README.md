@@ -1,6 +1,4 @@
-# Entrega 02 — Preparar y limpiar los datos
-
----
+# Entrega 02
 
 ## Hipótesis actual
 
