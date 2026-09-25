@@ -16,7 +16,7 @@ Finalmente, espero que el análisis permita llegar a un resultado concreto y fá
 
 ## Arquetipo de historia
 
-Nuestro proyecto se relaciona principalmente con el arquetipo de **Revelación**, ya que buscamos utilizar los datos para mostrar una relación que no es evidente a simple vista. Normalmente, cuando se habla de los factores que pueden influir en una elección, uno de los más mencionados es el dinero que cada candidato destina a su campaña. Sin embargo, existen otros elementos menos visibles, como la posición que ocupa cada candidato en la papeleta.
+Nuestro proyecto se relaciona principalmente con el arquetipo de Revelación, ya que buscamos utilizar los datos para mostrar una relación que no es evidente a simple vista. Normalmente, cuando se habla de los factores que pueden influir en una elección, uno de los más mencionados es el dinero que cada candidato destina a su campaña. Sin embargo, existen otros elementos menos visibles, como la posición que ocupa cada candidato en la papeleta.
 
 A partir del cruce entre los resultados electorales, el orden de los candidatos en la papeleta y sus gastos de campaña, queremos observar si existe un patrón que permita entender mejor qué factores se relacionan con los votos obtenidos.
 
