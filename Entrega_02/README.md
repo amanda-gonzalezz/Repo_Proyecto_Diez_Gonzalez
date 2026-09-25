@@ -1,8 +1,5 @@
 # Entrega 02 — Preparar y limpiar los datos
 
-**Curso:** Narración Gráfica de No Ficción (COM-208)
-**Integrantes:** Fernanda Diez, Amanda González
-
 ---
 
 ## Hipótesis actual
