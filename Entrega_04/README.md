@@ -12,8 +12,7 @@ La página integra la crónica de la Entrega 03 y una visualización de datos qu
 
 ## Proceso
 
-Primero organicé el contenido a partir de mi crónica individual de la Entrega 03. Después estructuré la página en HTML, utilizando etiquetas como `head`, `body`, `h1`, `p`, `img` y `a`.
-
+Primero organicé el contenido a partir de mi crónica individual de la Entrega 03. Después estructuré la página en HTML, utilizando etiquetas como head, body, h1, p, a e iframe. Esta última permitió incorporar la visualización interactiva de los resultados electorales directamente en la página.
 Incorporé la imagen del gráfico en su versión interactiva para poder ver mejor los datos.
 
 ## Link del sitio publicado
