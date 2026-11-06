@@ -3,7 +3,7 @@
 ## Pieza narrativa individual (Tarea 03)
 
 - **Título:** Gasto de campaña vs. resultado electoral: ¿sirve gastar más?
-- **Página publicada:** https://fernandadiezd.github.io/cronica-core-fernanda-diez/ ⚠️ *(cambiar por el link real una vez activado GitHub Pages)*
+- **Página publicada:** https://fernandadiezd.github.io/cronica-core-fernanda-diez/ 
 - **Archivos HTML:** carpeta [`sitio_web/`](sitio_web/)
 
 La página es solo el **wireframe en HTML** (sin CSS), como pide el enunciado. Usa las etiquetas vistas en clases:
