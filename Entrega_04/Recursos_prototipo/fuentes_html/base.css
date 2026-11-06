@@ -1,0 +1,19 @@
+:root{
+  --papel:#FFFFFF; --papel2:#EEEEEE; --tinta:#141414; --rojo:#2340D8;
+  --gris:#9A9A9A; --azul:#1E8C5A; --blanco:#FFFFFF; --amarillo:#FFE44D;
+  --titulo:"Poppins",sans-serif;
+  --texto:"Inter",sans-serif;
+  --mono:"Courier New","Liberation Mono",Courier,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:"Inter",sans-serif;color:var(--tinta);background:var(--papel)}
+.mono{font-family:var(--mono)}
+.serif{font-family:var(--texto)}
+.page{page-break-after:always;position:relative;overflow:hidden}
+.page:last-child{page-break-after:auto}
+.kicker{font-family:var(--titulo);font-weight:500;font-size:13px;color:var(--tinta)}
+.h{font-family:var(--titulo);font-weight:700;letter-spacing:-.01em;line-height:1.05}
+.hl{background:linear-gradient(transparent 8%,var(--amarillo) 8%,var(--amarillo) 94%,transparent 94%);padding:0 3px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.folio{position:absolute;bottom:14px;right:22px;font-family:var(--titulo);font-size:11px;color:var(--gris)}
+.marca{display:inline-block;width:4px;background:var(--tinta);border-radius:2px;transform:rotate(4deg)}
