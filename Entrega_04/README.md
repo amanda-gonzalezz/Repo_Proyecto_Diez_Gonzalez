@@ -6,7 +6,7 @@
 
 ## Links
 
-- Pizarra de Miro (personas, mapa de viaje y wireframes): [PEGAR LINK DE MIRO AQUÍ]
+- Pizarra de Miro (personas, mapa de viaje y wireframes): https://miro.com/app/board/uXjVERVzEio=/?share_link_id=659569609429 
 - Página individual de Fernanda Diez: está en el README de [`Diez_Fernanda_01_gasto_vis_01`](Diez_Fernanda_01_gasto_vis_01/README.md)
 - Página individual de Amanda González: está en el README de su carpeta
 
@@ -77,7 +77,7 @@ Dejamos el azul para pocas cosas a propósito. Si en un gráfico algo está en a
 
 ## 3. Wireframes
 
-- Link al prototipo: [PEGAR LINK DE MIRO AQUÍ]
+- Link al prototipo: https://miro.com/app/board/uXjVERVzEio=/?share_link_id=659569609429
 - PDF: `Wireframe_prototipo.pdf`
 
 ### Estructura
